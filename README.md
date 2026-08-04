@@ -62,7 +62,7 @@ Warnings
 Dosage and administration
 
 Project Structure
-
+```text
 medicine-directory/
 │
 ├── app/
@@ -90,7 +90,50 @@ medicine-directory/
 ├── tsconfig.json
 └── eslint.config.mjs
 
+```
+Application Architecture
 
+The application follows a simple flow:
+
+```text
+User
+  │
+  ▼
+SearchBar
+  │
+  │ Search query
+  ▼
+Homepage
+  │
+  ▼
+searchMedicines()
+  │
+  ▼
+openFDA Drug Label API
+  │
+  ▼
+Normalize API Response
+  │
+  ▼
+Medicine[]
+  │
+  ▼
+MedicineCard
+  │
+  │ FDA Record ID
+  ▼
+/medicine/[id]
+  │
+  ▼
+getMedicineById()
+  │
+  ▼
+openFDA Drug Label API
+  │
+  ▼
+Medicine Details
+
+```
 How It Works
 1. Medicine Search
 
@@ -102,9 +145,13 @@ Brand name
 Generic name
 
 For example:
+```text
 Advil
+```
 or
+```text
 Ibuprofen
+```
 
 2. Search Results
 
@@ -126,12 +173,14 @@ Purpose
 Each medicine record has an FDA record ID.
 
 The application uses this ID to create a dynamic route:
-
+```text
 /medicine/[id]
+```
 
 For example:
-
+```text
 /medicine/123456
+```
 
 The details page retrieves the specific FDA record and displays:
 
@@ -178,17 +227,6 @@ Unexpected API Responses
 
 The API response is validated before the application processes the results to reduce the risk of runtime errors caused by unexpected data.
 
-Responsive Design
-
-The application is designed to work across different screen sizes.
-
-The interface supports:
-
-Desktop screens
-Tablets
-Mobile devices
-
-Search results use a responsive grid layout that adapts to the available screen width.
 
 Getting Started
 Prerequisites
@@ -198,14 +236,15 @@ Make sure you have the following installed:
 Node.js
 npm
 1. Clone the Repository
+```text
 git clone YOUR_GITHUB_REPOSITORY_URL
-2. Navigate to the Project
+3. Navigate to the Project
 cd medicine-directory
-3. Install Dependencies
+4. Install Dependencies
 npm install
-4. Start the Development Server
+5. Start the Development Server
 npm run dev
-5. Open the Application
+6. Open the Application
 
 Open the following URL in your browser:
 
@@ -236,13 +275,15 @@ npm run build
 If the build completes successfully, the application can be started in production mode using:
 
 npm run start
+```
 SEO
 
 Medicine detail pages use dynamic metadata based on the medicine information.
 
 For example, a medicine page can have a title such as:
-
+```text
 Advil (Ibuprofen) | Medicine Directory
+```
 
 This provides more descriptive page titles for individual medicine records.
 
@@ -272,6 +313,6 @@ Automated testing
 Deployment with a public production URL
 
 
-```text
+
 
 
