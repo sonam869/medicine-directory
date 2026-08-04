@@ -50,6 +50,7 @@ The application uses the following API endpoint:
 
 ```text
 https://api.fda.gov/drug/label.json
+```
 
 The API is used to search for medicine records and retrieve information such as:
 
